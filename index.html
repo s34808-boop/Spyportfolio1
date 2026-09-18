@@ -29,7 +29,7 @@ html{
 
 body{
     font-family:'Kanit',sans-serif;
-    background:#fff;
+    background:#ffffff;
     color:#222;
     overflow-x:hidden;
 }
@@ -40,6 +40,19 @@ button{
 
 a{
     text-decoration:none;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root{
+    --mint:#48b894;
+    --mint-dark:#279b76;
+    --mint-light:#effff8;
+    --mint-border:#b8e8d7;
+    --dark:#164c3d;
 }
 
 
@@ -58,7 +71,7 @@ a{
 .snowflake{
     position:absolute;
     top:-30px;
-    color:white;
+    color:#d9f7ed;
     text-shadow:0 0 7px #8acdb5;
     animation:snowfall linear forwards;
 }
@@ -99,7 +112,7 @@ header{
 
     background:rgba(255,255,255,.97);
 
-    border-bottom:1px solid #dff5eb;
+    border-bottom:1px solid #e5f5ef;
 
     z-index:5000;
 }
@@ -124,7 +137,7 @@ header{
 }
 
 .logo span{
-    color:#48b894;
+    color:var(--mint);
 }
 
 .menu-button{
@@ -134,12 +147,18 @@ header{
     border:0;
     border-radius:15px;
 
-    background:#48b894;
+    background:var(--mint);
     color:#fff;
 
     font-size:34px;
 
     cursor:pointer;
+
+    transition:.2s;
+}
+
+.menu-button:hover{
+    background:var(--mint-dark);
 }
 
 
@@ -149,9 +168,7 @@ header{
 
 .page{
     display:none;
-
     min-height:100vh;
-
     padding-top:82px;
 }
 
@@ -171,7 +188,7 @@ header{
 .back{
     display:inline-block;
 
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:19px;
 
@@ -190,7 +207,7 @@ header{
 }
 
 .subtitle{
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:20px;
 
@@ -224,7 +241,7 @@ header{
 }
 
 .hello{
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:21px;
 
@@ -244,7 +261,7 @@ header{
 }
 
 .home h1 span{
-    color:#48b894;
+    color:var(--mint);
 }
 
 .home h2{
@@ -276,38 +293,41 @@ header{
 
     border-radius:12px;
 
-    border:2px solid #48b894;
+    border:2px solid var(--mint);
 
     font-size:17px;
 
     cursor:pointer;
+
+    transition:.2s;
 }
 
 .btn-mint{
-    background:#48b894;
-
+    background:var(--mint);
     color:#fff;
 }
 
 .btn-mint:hover{
-    background:#279b76;
+    background:var(--mint-dark);
 }
 
 .btn-white{
     background:#fff;
-
-    color:#279b76;
+    color:var(--mint-dark);
 }
 
 .btn-white:hover{
-    background:#edfff8;
+    background:var(--mint-light);
 }
+
+
+/* =========================
+   PROFILE IMAGE
+========================= */
 
 .home-photo{
     width:100%;
-
     max-width:430px;
-
     margin:auto;
 }
 
@@ -318,9 +338,12 @@ header{
 
     border-radius:28px;
 
-    border:4px solid #48b894;
+    border:4px solid var(--mint);
 
-    box-shadow:0 20px 50px rgba(72,184,148,.2);
+    box-shadow:
+        0 20px 50px rgba(72,184,148,.25);
+
+    object-fit:cover;
 }
 
 
@@ -340,9 +363,7 @@ header{
 
 .profile-photo{
     width:100%;
-
     max-width:420px;
-
     margin:auto;
 }
 
@@ -353,25 +374,29 @@ header{
 
     border-radius:28px;
 
-    border:4px solid #48b894;
+    border:4px solid var(--mint);
 
-    box-shadow:0 20px 50px rgba(72,184,148,.18);
+    box-shadow:
+        0 20px 50px rgba(72,184,148,.25);
+
+    object-fit:cover;
 }
 
 .profile-card{
     background:#fff;
 
-    border-left:6px solid #48b894;
+    border-left:6px solid var(--mint);
 
     border-radius:25px;
 
     padding:35px;
 
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
 }
 
 .profile-card h2{
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:30px;
 
@@ -408,17 +433,24 @@ header{
 .card{
     background:#fff;
 
-    border:1px solid #dff5eb;
+    border:1px solid var(--mint-border);
 
     border-radius:22px;
 
     padding:35px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.06);
+
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
 }
 
 .card h3{
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:26px;
 
@@ -447,7 +479,7 @@ header{
 
     text-align:center;
 
-    background:#effff8;
+    background:var(--mint-light);
 
     border:2px solid #78cdb1;
 
@@ -456,14 +488,10 @@ header{
     padding:50px 30px;
 }
 
-.university-logo{
-    width:160px;
+.university-icon{
+    font-size:80px;
 
-    height:160px;
-
-    object-fit:contain;
-
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .university h2{
@@ -473,7 +501,7 @@ header{
 }
 
 .university h3{
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:29px;
 
@@ -506,13 +534,21 @@ header{
 
     border-radius:50px;
 
-    background:#edfff8;
+    background:var(--mint-light);
 
-    border:1px solid #48b894;
+    border:1px solid var(--mint);
 
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:18px;
+
+    transition:.2s;
+}
+
+.skill:hover{
+    background:var(--mint);
+
+    color:#fff;
 }
 
 
@@ -533,11 +569,12 @@ header{
 
     background:#fff;
 
-    border:1px solid #dff5eb;
+    border:1px solid var(--mint-border);
 
     border-radius:24px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.07);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.07);
 }
 
 .project img{
@@ -555,7 +592,7 @@ header{
 }
 
 .project-content h3{
-    color:#279b76;
+    color:var(--mint-dark);
 
     font-size:25px;
 
@@ -584,7 +621,7 @@ header{
 
     padding:50px 30px;
 
-    background:#effff8;
+    background:var(--mint-light);
 
     border:2px solid #78cdb1;
 
@@ -611,7 +648,7 @@ header{
 ========================= */
 
 footer{
-    background:#164c3d;
+    background:var(--dark);
 
     color:#fff;
 
@@ -664,7 +701,7 @@ footer span{
 
     color:#fff;
 
-    border:1px solid #48b894;
+    border:1px solid var(--mint);
 
     border-radius:28px;
 
@@ -687,7 +724,6 @@ footer span{
 
 .close{
     width:55px;
-
     height:55px;
 
     background:transparent;
@@ -740,9 +776,9 @@ footer span{
 }
 
 .menu-item:hover{
-    background:#48b894;
+    background:var(--mint);
 
-    border-color:#48b894;
+    border-color:var(--mint);
 
     transform:translateY(-2px);
 }
@@ -789,6 +825,7 @@ footer span{
 
 }
 
+
 @media(max-width:550px){
 
     header{
@@ -809,7 +846,6 @@ footer span{
 
     .menu-button{
         width:56px;
-
         height:56px;
     }
 
@@ -847,7 +883,6 @@ footer span{
 
     .menu-item{
         min-height:105px;
-
         font-size:17px;
     }
 
@@ -865,12 +900,16 @@ footer span{
 <body>
 
 
-<!-- หิมะ -->
+<!-- =========================
+     SNOW
+========================= -->
 
 <div id="snow"></div>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -884,6 +923,7 @@ P.P.<span>PORTFOLIO</span>
 
 </a>
 
+
 <button class="menu-button"
         onclick="openMenu()">
 
@@ -896,7 +936,9 @@ P.P.<span>PORTFOLIO</span>
 </header>
 
 
-<!-- HOME -->
+<!-- =========================
+     HOME
+========================= -->
 
 <section id="home"
          class="page active">
@@ -905,19 +947,23 @@ P.P.<span>PORTFOLIO</span>
 
 <div class="home-grid">
 
+
 <div>
 
 <div class="hello">
 HELLO, I'M
 </div>
 
+
 <h1>
 แพรว<span>พิชชา</span>
 </h1>
 
+
 <h2>
 น.ส.แพรวพิชชา คูณอ่ำ
 </h2>
+
 
 <p>
 
@@ -930,6 +976,7 @@ HELLO, I'M
 
 </p>
 
+
 <div class="buttons">
 
 <button class="btn btn-mint"
@@ -938,6 +985,7 @@ HELLO, I'M
 รู้จักฉันมากขึ้น
 
 </button>
+
 
 <button class="btn btn-white"
         onclick="showPage('contact')">
@@ -951,6 +999,8 @@ HELLO, I'M
 </div>
 
 
+<!-- รูปหน้าแรก -->
+
 <div class="home-photo">
 
 <img
@@ -959,6 +1009,7 @@ alt="น.ส.แพรวพิชชา คูณอ่ำ">
 
 </div>
 
+
 </div>
 
 </div>
@@ -966,12 +1017,16 @@ alt="น.ส.แพรวพิชชา คูณอ่ำ">
 </section>
 
 
-<!-- HISTORY -->
+
+<!-- =========================
+     HISTORY
+========================= -->
 
 <section id="history"
          class="page">
 
 <div class="container">
+
 
 <div class="back"
      onclick="showPage('home')">
@@ -980,21 +1035,27 @@ alt="น.ส.แพรวพิชชา คูณอ่ำ">
 
 </div>
 
+
 <h1 class="title">
 ประวัติ
 </h1>
+
 
 <div class="subtitle">
 MY PROFILE
 </div>
 
+
 <div class="profile">
+
+
+<!-- รูปประวัติ -->
 
 <div class="profile-photo">
 
 <img
 src="profile.jpg"
-alt="รูปประจำตัว">
+alt="รูปประจำตัว น.ส.แพรวพิชชา คูณอ่ำ">
 
 </div>
 
@@ -1005,35 +1066,42 @@ alt="รูปประจำตัว">
 น.ส.แพรวพิชชา คูณอ่ำ
 </h2>
 
+
 <div class="info">
 <strong>ชื่อ-นามสกุล:</strong>
 น.ส.แพรวพิชชา คูณอ่ำ
 </div>
+
 
 <div class="info">
 <strong>วัน/เดือน/ปีเกิด:</strong>
 23 มีนาคม 2552
 </div>
 
+
 <div class="info">
 <strong>สถานศึกษาเดิม:</strong>
 โรงเรียนวัฒนดรุณวิทย์
 </div>
+
 
 <div class="info">
 <strong>มหาวิทยาลัย:</strong>
 มหาวิทยาลัยบูรพา
 </div>
 
+
 <div class="info">
 <strong>คณะ:</strong>
-มนุษยศาสตร์และสังคมศาสตร์
+คณะมนุษยศาสตร์และสังคมศาสตร์
 </div>
+
 
 <div class="info">
 <strong>สาขา:</strong>
 ภาษาจีน
 </div>
+
 
 </div>
 
@@ -1044,12 +1112,16 @@ alt="รูปประจำตัว">
 </section>
 
 
-<!-- EDUCATION -->
+
+<!-- =========================
+     EDUCATION
+========================= -->
 
 <section id="education"
          class="page">
 
 <div class="container">
+
 
 <div class="back"
      onclick="showPage('home')">
@@ -1058,13 +1130,16 @@ alt="รูปประจำตัว">
 
 </div>
 
+
 <h1 class="title">
 การศึกษา
 </h1>
 
+
 <div class="subtitle">
 EDUCATION
 </div>
+
 
 <div class="cards">
 
@@ -1128,13 +1203,17 @@ EDUCATION
 </section>
 
 
-<!-- UNIVERSITY -->
+
+<!-- =========================
+     UNIVERSITY
+========================= -->
 
 <section id="university"
          class="page">
 
 <div class="container">
 
+
 <div class="back"
      onclick="showPage('home')">
 
@@ -1142,37 +1221,46 @@ EDUCATION
 
 </div>
 
+
 <h1 class="title">
 มหาวิทยาลัย
 </h1>
+
 
 <div class="subtitle">
 UNIVERSITY
 </div>
 
+
 <div class="university">
 
-<div style="font-size:80px;margin-bottom:20px;">
+
+<div class="university-icon">
 🎓
 </div>
+
 
 <h2>
 มหาวิทยาลัยบูรพา
 </h2>
 
+
 <h3>
 คณะมนุษยศาสตร์และสังคมศาสตร์
 </h3>
 
+
 <p>
 สาขาภาษาจีน
 </p>
+
 
 <p>
 ศึกษาด้านภาษา การสื่อสาร
 และวัฒนธรรมจีน
 </p>
 
+
 </div>
 
 </div>
@@ -1180,13 +1268,17 @@ UNIVERSITY
 </section>
 
 
-<!-- SKILLS -->
+
+<!-- =========================
+     SKILLS
+========================= -->
 
 <section id="skills"
          class="page">
 
 <div class="container">
 
+
 <div class="back"
      onclick="showPage('home')">
 
@@ -1194,35 +1286,49 @@ UNIVERSITY
 
 </div>
 
+
 <h1 class="title">
 ทักษะ
 </h1>
+
 
 <div class="subtitle">
 SKILLS
 </div>
 
+
 <div class="skills">
+
 
 <div class="skill">
 🇨🇳 ภาษาจีน
 </div>
 
+
 <div class="skill">
 💬 การสื่อสาร
 </div>
+
 
 <div class="skill">
 📚 การเรียนรู้
 </div>
 
+
 <div class="skill">
 💻 คอมพิวเตอร์
 </div>
 
+
 <div class="skill">
 🤝 การทำงานเป็นทีม
 </div>
+
+
+<div class="skill">
+🌏 ความรู้ด้านวัฒนธรรม
+</div>
+
 
 </div>
 
@@ -1231,12 +1337,16 @@ SKILLS
 </section>
 
 
-<!-- PROJECTS -->
+
+<!-- =========================
+     PROJECTS
+========================= -->
 
 <section id="projects"
          class="page">
 
 <div class="container">
+
 
 <div class="back"
      onclick="showPage('home')">
@@ -1245,13 +1355,16 @@ SKILLS
 
 </div>
 
+
 <h1 class="title">
 ผลงาน
 </h1>
 
+
 <div class="subtitle">
 PROJECTS
 </div>
+
 
 <div class="projects">
 
@@ -1278,6 +1391,7 @@ alt="ผลงานที่ 1">
 </div>
 
 
+
 <div class="project">
 
 <img
@@ -1298,6 +1412,7 @@ alt="ผลงานที่ 2">
 </div>
 
 </div>
+
 
 
 <div class="project">
@@ -1329,12 +1444,16 @@ alt="ผลงานที่ 3">
 </section>
 
 
-<!-- CONTACT -->
+
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section id="contact"
          class="page">
 
 <div class="container">
+
 
 <div class="back"
      onclick="showPage('home')">
@@ -1343,13 +1462,16 @@ alt="ผลงานที่ 3">
 
 </div>
 
+
 <h1 class="title">
 ติดต่อ
 </h1>
 
+
 <div class="subtitle">
 CONTACT
 </div>
+
 
 <div class="contact">
 
@@ -1357,22 +1479,31 @@ CONTACT
 ติดต่อฉันได้ที่
 </h2>
 
+
 <p>
 👩🏻‍🎓 น.ส.แพรวพิชชา คูณอ่ำ
 </p>
+
 
 <p>
 🎓 มหาวิทยาลัยบูรพา
 </p>
 
+
 <p>
-🇨🇳 คณะมนุษยศาสตร์และสังคมศาสตร์
-สาขาภาษาจีน
+📚 คณะมนุษยศาสตร์และสังคมศาสตร์
 </p>
+
+
+<p>
+🇨🇳 สาขาภาษาจีน
+</p>
+
 
 <p>
 ขอบคุณที่เข้ามาเยี่ยมชม Portfolio ค่ะ 💚
 </p>
+
 
 </div>
 
@@ -1381,7 +1512,10 @@ CONTACT
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1392,19 +1526,25 @@ PORTFOLIO
 </footer>
 
 
-<!-- MENU -->
+
+<!-- =========================
+     MENU
+========================= -->
 
 <div id="menu"
      class="overlay"
      onclick="closeMenuOutside(event)">
 
+
 <div class="menu-box">
+
 
 <div class="menu-head">
 
 <h2>
 P.P. PORTFOLIO
 </h2>
+
 
 <button class="close"
         onclick="closeMenu()">
@@ -1414,6 +1554,7 @@ P.P. PORTFOLIO
 </button>
 
 </div>
+
 
 <div style="
 text-align:center;
@@ -1520,6 +1661,7 @@ MENU — เมนูต่าง ๆ
 </div>
 
 
+
 <script>
 
 /* =========================
@@ -1537,8 +1679,10 @@ function showPage(pageId){
 
     });
 
+
     const selectedPage =
         document.getElementById(pageId);
+
 
     if(selectedPage){
 
@@ -1546,13 +1690,16 @@ function showPage(pageId){
 
     }
 
+
     closeMenu();
+
 
     history.replaceState(
         null,
         null,
         '#' + pageId
     );
+
 
     window.scrollTo({
         top:0,
@@ -1606,6 +1753,7 @@ window.addEventListener(
         const hash =
             window.location.hash.replace('#','');
 
+
         const validPages = [
 
             'home',
@@ -1617,6 +1765,7 @@ window.addEventListener(
             'contact'
 
         ];
+
 
         if(validPages.includes(hash)){
 
@@ -1641,28 +1790,37 @@ function createSnow(){
     const container =
         document.getElementById('snow');
 
+
     const snow =
         document.createElement('div');
+
 
     snow.className =
         'snowflake';
 
+
     snow.innerHTML =
         '❄';
+
 
     snow.style.left =
         Math.random() * 100 + 'vw';
 
+
     snow.style.fontSize =
         Math.random() * 12 + 8 + 'px';
+
 
     snow.style.opacity =
         Math.random() * .7 + .3;
 
+
     snow.style.animationDuration =
         Math.random() * 5 + 5 + 's';
 
+
     container.appendChild(snow);
+
 
     setTimeout(
         function(){
@@ -1676,11 +1834,15 @@ function createSnow(){
 }
 
 
+/* หิมะตกต่อเนื่อง */
+
 setInterval(
     createSnow,
     350
 );
 
+
+/* หิมะเริ่มต้น */
 
 for(
     let i = 0;
