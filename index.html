@@ -5,10 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>แพรวพิชชา PORTFOLIO</title>
+<title>PP. PORTFOLIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -44,15 +45,16 @@ a{
 
 
 /* =========================
-   COLORS
+   COLOR
 ========================= */
 
 :root{
-    --mint:#48b894;
-    --mint-dark:#279b76;
-    --mint-light:#effff8;
-    --mint-border:#b8e8d7;
-    --dark:#164c3d;
+    --mint:#4db89a;
+    --mint-dark:#37977e;
+    --mint-light:#e9f8f3;
+    --mint-soft:#f5fcfa;
+    --text:#222;
+    --gray:#666;
 }
 
 
@@ -71,8 +73,8 @@ a{
 .snowflake{
     position:absolute;
     top:-30px;
-    color:#d9f7ed;
-    text-shadow:0 0 7px #8acdb5;
+    color:#dff7f0;
+    text-shadow:0 0 7px #9dd8ca;
     animation:snowfall linear forwards;
 }
 
@@ -112,7 +114,7 @@ header{
 
     background:rgba(255,255,255,.97);
 
-    border-bottom:1px solid #e5f5ef;
+    border-bottom:1px solid #eee;
 
     z-index:5000;
 }
@@ -120,9 +122,11 @@ header{
 .navbar{
     width:100%;
     max-width:1200px;
+
     height:100%;
 
     margin:auto;
+
     padding:0 30px;
 
     display:flex;
@@ -132,7 +136,9 @@ header{
 
 .logo{
     color:#222;
+
     font-size:29px;
+
     font-weight:800;
 }
 
@@ -145,9 +151,11 @@ header{
     height:60px;
 
     border:0;
+
     border-radius:15px;
 
     background:var(--mint);
+
     color:#fff;
 
     font-size:34px;
@@ -159,6 +167,7 @@ header{
 
 .menu-button:hover{
     background:var(--mint-dark);
+    transform:translateY(-2px);
 }
 
 
@@ -168,7 +177,9 @@ header{
 
 .page{
     display:none;
+
     min-height:100vh;
+
     padding-top:82px;
 }
 
@@ -199,6 +210,7 @@ header{
 
 .title{
     font-size:58px;
+
     line-height:1;
 
     font-weight:800;
@@ -302,33 +314,30 @@ header{
     transition:.2s;
 }
 
-.btn-mint{
-    background:var(--mint);
-    color:#fff;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.btn-mint:hover{
-    background:var(--mint-dark);
+.btn-mint{
+    background:var(--mint);
+
+    color:#fff;
 }
 
 .btn-white{
     background:#fff;
+
     color:var(--mint-dark);
 }
 
-.btn-white:hover{
-    background:var(--mint-light);
-}
-
-
-/* =========================
-   PROFILE IMAGE
-========================= */
-
 .home-photo{
     width:100%;
+
     max-width:430px;
+
     margin:auto;
+
+    padding:8px;
 }
 
 .home-photo img{
@@ -336,19 +345,20 @@ header{
 
     width:100%;
 
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
     border-radius:28px;
 
     border:4px solid var(--mint);
 
-    box-shadow:
-        0 20px 50px rgba(72,184,148,.25);
-
-    object-fit:cover;
+    box-shadow:0 20px 50px rgba(77,184,154,.20);
 }
 
 
 /* =========================
-   HISTORY
+   PROFILE
 ========================= */
 
 .profile{
@@ -363,8 +373,12 @@ header{
 
 .profile-photo{
     width:100%;
+
     max-width:420px;
+
     margin:auto;
+
+    padding:8px;
 }
 
 .profile-photo img{
@@ -372,14 +386,15 @@ header{
 
     width:100%;
 
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
     border-radius:28px;
 
     border:4px solid var(--mint);
 
-    box-shadow:
-        0 20px 50px rgba(72,184,148,.25);
-
-    object-fit:cover;
+    box-shadow:0 20px 50px rgba(77,184,154,.18);
 }
 
 .profile-card{
@@ -391,8 +406,7 @@ header{
 
     padding:35px;
 
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.08);
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
 .profile-card h2{
@@ -433,20 +447,21 @@ header{
 .card{
     background:#fff;
 
-    border:1px solid var(--mint-border);
+    border:1px solid #e4eee9;
 
     border-radius:22px;
 
     padding:35px;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.06);
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
 
     transition:.2s;
 }
 
 .card:hover{
     transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(77,184,154,.13);
 }
 
 .card h3{
@@ -479,9 +494,9 @@ header{
 
     text-align:center;
 
-    background:var(--mint-light);
+    background:var(--mint-soft);
 
-    border:2px solid #78cdb1;
+    border:2px solid #8bd2be;
 
     border-radius:30px;
 
@@ -541,14 +556,6 @@ header{
     color:var(--mint-dark);
 
     font-size:18px;
-
-    transition:.2s;
-}
-
-.skill:hover{
-    background:var(--mint);
-
-    color:#fff;
 }
 
 
@@ -569,12 +576,11 @@ header{
 
     background:#fff;
 
-    border:1px solid var(--mint-border);
+    border:1px solid #eee;
 
     border-radius:24px;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.07);
+    box-shadow:0 10px 30px rgba(0,0,0,.07);
 }
 
 .project img{
@@ -621,9 +627,9 @@ header{
 
     padding:50px 30px;
 
-    background:var(--mint-light);
+    background:var(--mint-soft);
 
-    border:2px solid #78cdb1;
+    border:2px solid #8bd2be;
 
     border-radius:28px;
 }
@@ -648,7 +654,7 @@ header{
 ========================= */
 
 footer{
-    background:var(--dark);
+    background:#222;
 
     color:#fff;
 
@@ -658,7 +664,7 @@ footer{
 }
 
 footer span{
-    color:#6ed6b4;
+    color:var(--mint);
 }
 
 
@@ -697,7 +703,7 @@ footer span{
 
     overflow:auto;
 
-    background:#12372d;
+    background:#111;
 
     color:#fff;
 
@@ -724,13 +730,14 @@ footer span{
 
 .close{
     width:55px;
+
     height:55px;
 
     background:transparent;
 
     color:#fff;
 
-    border:1px solid #557c70;
+    border:1px solid #555;
 
     border-radius:15px;
 
@@ -750,11 +757,11 @@ footer span{
 .menu-item{
     min-height:120px;
 
-    border:1px solid #3d9478;
+    border:1px solid #438e7a;
 
     border-radius:18px;
 
-    background:#19483b;
+    background:#151a18;
 
     color:#fff;
 
@@ -825,7 +832,6 @@ footer span{
 
 }
 
-
 @media(max-width:550px){
 
     header{
@@ -846,6 +852,7 @@ footer span{
 
     .menu-button{
         width:56px;
+
         height:56px;
     }
 
@@ -883,6 +890,7 @@ footer span{
 
     .menu-item{
         min-height:105px;
+
         font-size:17px;
     }
 
@@ -890,6 +898,15 @@ footer span{
         height:240px;
     }
 
+}
+
+
+/* =========================
+   IMAGE FALLBACK
+========================= */
+
+img{
+    background:#f2faf7;
 }
 
 </style>
@@ -919,7 +936,7 @@ footer span{
    class="logo"
    onclick="showPage('home')">
 
-P.P.<span>PORTFOLIO</span>
+PP<span>.PORTFOLIO</span>
 
 </a>
 
@@ -934,6 +951,7 @@ P.P.<span>PORTFOLIO</span>
 </div>
 
 </header>
+
 
 
 <!-- =========================
@@ -956,7 +974,7 @@ HELLO, I'M
 
 
 <h1>
-แพรว<span>พิชชา</span>
+แพรวพิชชา<span></span>
 </h1>
 
 
@@ -973,6 +991,12 @@ HELLO, I'M
 
 คณะมนุษยศาสตร์และสังคมศาสตร์
 สาขาภาษาจีน
+
+<br>
+
+ผู้ที่มีความสนใจด้านภาษา
+การสื่อสาร วัฒนธรรมจีน
+และการเรียนรู้สิ่งใหม่ ๆ
 
 </p>
 
@@ -999,13 +1023,13 @@ HELLO, I'M
 </div>
 
 
-<!-- รูปหน้าแรก -->
-
 <div class="home-photo">
 
+<!-- รูปโปรไฟล์ -->
 <img
-src="profile.jpg"
-alt="น.ส.แพรวพิชชา คูณอ่ำ">
+src="./profile.jpg"
+alt="น.ส.แพรวพิชชา คูณอ่ำ"
+onerror="this.src='https://raw.githubusercontent.com/s34808-boop/Spyportfolio1/main/profile.jpg';">
 
 </div>
 
@@ -1049,13 +1073,12 @@ MY PROFILE
 <div class="profile">
 
 
-<!-- รูปประวัติ -->
-
 <div class="profile-photo">
 
 <img
-src="profile.jpg"
-alt="รูปประจำตัว น.ส.แพรวพิชชา คูณอ่ำ">
+src="./profile.jpg"
+alt="รูปประจำตัว น.ส.แพรวพิชชา คูณอ่ำ"
+onerror="this.src='https://raw.githubusercontent.com/s34808-boop/Spyportfolio1/main/profile.jpg';">
 
 </div>
 
@@ -1093,7 +1116,7 @@ alt="รูปประจำตัว น.ส.แพรวพิชชา ค�
 
 <div class="info">
 <strong>คณะ:</strong>
-คณะมนุษยศาสตร์และสังคมศาสตร์
+มนุษยศาสตร์และสังคมศาสตร์
 </div>
 
 
@@ -1154,17 +1177,8 @@ EDUCATION
 โรงเรียนวัฒนดรุณวิทย์
 </p>
 
-</div>
-
-
-<div class="card">
-
-<h3>
-🎓 ระดับมหาวิทยาลัย
-</h3>
-
 <p>
-มหาวิทยาลัยบูรพา
+สำเร็จการศึกษาระดับมัธยมศึกษา
 </p>
 
 </div>
@@ -1173,8 +1187,12 @@ EDUCATION
 <div class="card">
 
 <h3>
-📚 คณะ
+🏫 ระดับมหาวิทยาลัย
 </h3>
+
+<p>
+มหาวิทยาลัยบูรพา
+</p>
 
 <p>
 คณะมนุษยศาสตร์และสังคมศาสตร์
@@ -1190,7 +1208,27 @@ EDUCATION
 </h3>
 
 <p>
-สาขาภาษาจีน
+ภาษาจีน
+</p>
+
+<p>
+มุ่งพัฒนาทักษะด้านภาษา
+การสื่อสาร และความเข้าใจวัฒนธรรมจีน
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🎯 เป้าหมาย
+</h3>
+
+<p>
+พัฒนาความรู้ด้านภาษาจีน
+และนำทักษะไปประยุกต์ใช้ในการเรียน
+และการทำงานในอนาคต
 </p>
 
 </div>
@@ -1251,13 +1289,14 @@ UNIVERSITY
 
 
 <p>
+
 สาขาภาษาจีน
-</p>
 
+<br>
 
-<p>
-ศึกษาด้านภาษา การสื่อสาร
-และวัฒนธรรมจีน
+ศึกษาเกี่ยวกับภาษา การสื่อสาร
+วัฒนธรรม และความรู้ที่เกี่ยวข้องกับภาษาจีน
+
 </p>
 
 
@@ -1326,7 +1365,17 @@ SKILLS
 
 
 <div class="skill">
-🌏 ความรู้ด้านวัฒนธรรม
+💡 ความคิดสร้างสรรค์
+</div>
+
+
+<div class="skill">
+🎯 การวางแผน
+</div>
+
+
+<div class="skill">
+🌱 พัฒนาตนเอง
 </div>
 
 
@@ -1371,19 +1420,30 @@ PROJECTS
 
 <div class="project">
 
-<img
-src="project1.jpg"
-alt="ผลงานที่ 1">
+<div style="
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#e9f8f3;
+font-size:80px;
+">
+
+🇨🇳
+
+</div>
+
 
 <div class="project-content">
 
 <h3>
-📚 ผลงานด้านการเรียน
+🇨🇳 การเรียนภาษาจีน
 </h3>
 
+
 <p>
-สามารถเพิ่มผลงานและกิจกรรม
-ด้านการเรียนได้ที่ส่วนนี้
+กิจกรรมและผลงานที่เกี่ยวข้องกับ
+การเรียนรู้ภาษาจีนและวัฒนธรรมจีน
 </p>
 
 </div>
@@ -1394,19 +1454,30 @@ alt="ผลงานที่ 1">
 
 <div class="project">
 
-<img
-src="project2.jpg"
-alt="ผลงานที่ 2">
+<div style="
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f5fcfa;
+font-size:80px;
+">
+
+📚
+
+</div>
+
 
 <div class="project-content">
 
 <h3>
-🇨🇳 กิจกรรมด้านภาษาจีน
+📚 การเรียนรู้
 </h3>
 
+
 <p>
-สามารถเพิ่มกิจกรรมและประสบการณ์
-ที่เกี่ยวข้องกับภาษาจีนได้
+รวบรวมประสบการณ์จากการเรียน
+และการพัฒนาทักษะต่าง ๆ
 </p>
 
 </div>
@@ -1417,24 +1488,36 @@ alt="ผลงานที่ 2">
 
 <div class="project">
 
-<img
-src="project3.jpg"
-alt="ผลงานที่ 3">
+<div style="
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#e9f8f3;
+font-size:80px;
+">
+
+🤝
+
+</div>
+
 
 <div class="project-content">
 
 <h3>
-🏆 กิจกรรมและผลงาน
+🤝 กิจกรรม
 </h3>
 
+
 <p>
-สามารถเพิ่มผลงาน รางวัล
-และกิจกรรมต่าง ๆ ได้ที่ส่วนนี้
+ประสบการณ์จากกิจกรรมต่าง ๆ
+และการทำงานร่วมกับผู้อื่น
 </p>
 
 </div>
 
 </div>
+
 
 
 </div>
@@ -1464,7 +1547,7 @@ alt="ผลงานที่ 3">
 
 
 <h1 class="title">
-ติดต่อ
+ติดต่อฉัน
 </h1>
 
 
@@ -1481,22 +1564,17 @@ CONTACT
 
 
 <p>
-👩🏻‍🎓 น.ส.แพรวพิชชา คูณอ่ำ
+📱 สามารถติดต่อผ่านช่องทางโซเชียลมีเดีย
 </p>
 
 
 <p>
-🎓 มหาวิทยาลัยบูรพา
+Instagram : แพรวพิชชา
 </p>
 
 
 <p>
-📚 คณะมนุษยศาสตร์และสังคมศาสตร์
-</p>
-
-
-<p>
-🇨🇳 สาขาภาษาจีน
+Facebook : แพรวพิชชา
 </p>
 
 
@@ -1520,7 +1598,7 @@ CONTACT
 <footer>
 
 © 2026
-<span>แพรวพิชชา</span>
+<span>PP.</span>
 PORTFOLIO
 
 </footer>
@@ -1542,7 +1620,7 @@ PORTFOLIO
 <div class="menu-head">
 
 <h2>
-P.P. PORTFOLIO
+PP. PORTFOLIO
 </h2>
 
 
@@ -1559,7 +1637,7 @@ P.P. PORTFOLIO
 <div style="
 text-align:center;
 margin-bottom:25px;
-color:#b8dcd0;
+color:#bbb;
 ">
 
 MENU — เมนูต่าง ๆ
@@ -1649,7 +1727,7 @@ MENU — เมนูต่าง ๆ
 💬
 </div>
 
-ติดต่อ
+ติดต่อฉัน
 
 </button>
 
@@ -1694,7 +1772,7 @@ function showPage(pageId){
     closeMenu();
 
 
-    history.replaceState(
+    window.history.replaceState(
         null,
         null,
         '#' + pageId
@@ -1750,7 +1828,7 @@ window.addEventListener(
     'load',
     function(){
 
-        const hash =
+        let hash =
             window.location.hash.replace('#','');
 
 
@@ -1774,6 +1852,60 @@ window.addEventListener(
         }else{
 
             showPage('home');
+
+        }
+
+    }
+);
+
+
+/* =========================
+   BROWSER BACK/FORWARD
+========================= */
+
+window.addEventListener(
+    'hashchange',
+    function(){
+
+        let hash =
+            window.location.hash.replace('#','');
+
+
+        const validPages = [
+
+            'home',
+            'history',
+            'education',
+            'university',
+            'skills',
+            'projects',
+            'contact'
+
+        ];
+
+
+        if(validPages.includes(hash)){
+
+            const pages =
+                document.querySelectorAll('.page');
+
+
+            pages.forEach(function(page){
+
+                page.classList.remove('active');
+
+            });
+
+
+            document
+            .getElementById(hash)
+            .classList.add('active');
+
+
+            window.scrollTo({
+                top:0,
+                behavior:'smooth'
+            });
 
         }
 
