@@ -1,902 +1,1701 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>แพรวพิชชา คูณอ่ำ | Portfolio</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, "Noto Sans Thai", sans-serif;
-            background: #f2fff9;
-            color: #23483c;
-        }
-
-        /* ===== NAVBAR ===== */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0, 80, 60, 0.08);
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #21866b;
-        }
-
-        .menu {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #315c4f;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .menu a:hover {
-            color: #35b88d;
-        }
-
-        /* ===== HOME ===== */
-
-        #home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 25px 60px;
-            background:
-                radial-gradient(circle at 15% 20%, #c8f7e5 0%, transparent 30%),
-                radial-gradient(circle at 85% 80%, #b8f1dc 0%, transparent 30%),
-                #f2fff9;
-        }
-
-        .home-container {
-            max-width: 1100px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .home-text small {
-            color: #38a982;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .home-text h1 {
-            font-size: 55px;
-            color: #17634e;
-            margin: 15px 0;
-        }
-
-        .home-text h2 {
-            font-size: 25px;
-            color: #39816d;
-            font-weight: normal;
-            margin-bottom: 20px;
-        }
-
-        .home-text p {
-            font-size: 18px;
-            color: #55756b;
-            max-width: 650px;
-        }
-
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            text-decoration: none;
-            padding: 13px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-main {
-            background: #5ed0a8;
-            color: white;
-        }
-
-        .btn-main:hover {
-            background: #32a87f;
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            border: 2px solid #5ed0a8;
-            color: #278566;
-        }
-
-        .btn-outline:hover {
-            background: #d9fbed;
-        }
-
-        .profile-circle {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #a9efd5, #e4fff5);
-            border: 8px solid white;
-            box-shadow: 0 15px 40px rgba(50, 150, 115, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-            font-size: 100px;
-        }
-
-        /* ===== GENERAL SECTION ===== */
-
-        section {
-            padding: 100px 25px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            color: #1d7059;
-        }
-
-        .section-title span {
-            color: #64cba7;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        /* ===== PROFILE ===== */
-
-        #profile {
-            background: white;
-        }
-
-        .profile-box {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .profile-icon {
-            width: 250px;
-            height: 250px;
-            background: #dffbef;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
-            margin: auto;
-        }
-
-        .profile-info {
-            background: #f2fff9;
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .profile-info p {
-            padding: 9px 0;
-            border-bottom: 1px solid #d9f1e7;
-        }
-
-        .profile-info strong {
-            color: #268263;
-        }
-
-        /* ===== EDUCATION ===== */
-
-        #education {
-            background: #edfff7;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .edu-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            border-left: 6px solid #62d1aa;
-            box-shadow: 0 8px 25px rgba(50, 140, 110, 0.08);
-            transition: 0.3s;
-        }
-
-        .edu-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .edu-card h3 {
-            color: #237b60;
-            margin-bottom: 12px;
-        }
-
-        .edu-card p {
-            color: #58766c;
-        }
-
-        /* ===== UNIVERSITY ===== */
-
-        #university {
-            background: white;
-        }
-
-        .university-card {
-            background: linear-gradient(135deg, #e5fff4, #f8fffc);
-            border-radius: 25px;
-            padding: 45px;
-            text-align: center;
-            border: 1px solid #c8efdf;
-        }
-
-        .university-icon {
-            font-size: 70px;
-            margin-bottom: 15px;
-        }
-
-        .university-card h3 {
-            font-size: 30px;
-            color: #1d7059;
-            margin-bottom: 15px;
-        }
-
-        .university-card p {
-            color: #527369;
-            font-size: 18px;
-            margin: 5px;
-        }
-
-        /* ===== SKILLS ===== */
-
-        #skills {
-            background: #edfff7;
-        }
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .skill {
-            background: white;
-            padding: 25px 15px;
-            text-align: center;
-            border-radius: 18px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-6px);
-            background: #f5fffb;
-        }
-
-        .skill .icon {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .skill h3 {
-            color: #287a61;
-            font-size: 18px;
-        }
-
-        /* ===== PROJECTS ===== */
-
-        #projects {
-            background: white;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            background: #f1fff8;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid #d6f3e6;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 10px 25px rgba(50, 140, 110, 0.12);
-        }
-
-        .project-icon {
-            font-size: 55px;
-            margin-bottom: 15px;
-        }
-
-        .project h3 {
-            color: #26775d;
-            margin-bottom: 10px;
-        }
-
-        .project p {
-            color: #627c73;
-        }
-
-        /* ===== CONTACT ===== */
-
-        #contact {
-            background: #dffbef;
-        }
-
-        .contact-box {
-            text-align: center;
-            background: white;
-            padding: 45px;
-            border-radius: 25px;
-        }
-
-        .contact-box h2 {
-            color: #1d7059;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: #58756b;
-            font-size: 18px;
-            margin: 8px;
-        }
-
-        /* ===== FOOTER ===== */
-
-        footer {
-            background: #17634e;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        footer p {
-            margin: 5px;
-        }
-
-        /* ===== MOBILE ===== */
-
-        @media (max-width: 800px) {
-
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .menu {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .menu a {
-                font-size: 13px;
-            }
-
-            .home-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .home-text h1 {
-                font-size: 38px;
-            }
-
-            .home-text h2 {
-                font-size: 20px;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .profile-box {
-                grid-template-columns: 1fr;
-            }
-
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-circle {
-                width: 230px;
-                height: 230px;
-                font-size: 75px;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            section {
-                padding: 75px 18px;
-            }
-
-            .section-title h2 {
-                font-size: 30px;
-            }
-
-            .skills {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .menu {
-                gap: 8px;
-            }
-
-            .menu a {
-                font-size: 12px;
-            }
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>แพรวพิชชา PORTFOLIO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Kanit',sans-serif;
+    background:#fff;
+    color:#222;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* =========================
+   SNOW
+========================= */
+
+#snow{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:99999;
+}
+
+.snowflake{
+    position:absolute;
+    top:-30px;
+    color:white;
+    text-shadow:0 0 7px #8acdb5;
+    animation:snowfall linear forwards;
+}
+
+@keyframes snowfall{
+
+    0%{
+        transform:translate3d(0,-30px,0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:translate3d(40px,50vh,0) rotate(180deg);
+    }
+
+    100%{
+        transform:translate3d(-30px,110vh,0) rotate(360deg);
+        opacity:.8;
+    }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:82px;
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid #dff5eb;
+
+    z-index:5000;
+}
+
+.navbar{
+    width:100%;
+    max-width:1200px;
+    height:100%;
+
+    margin:auto;
+    padding:0 30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:#222;
+    font-size:29px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#48b894;
+}
+
+.menu-button{
+    width:60px;
+    height:60px;
+
+    border:0;
+    border-radius:15px;
+
+    background:#48b894;
+    color:#fff;
+
+    font-size:34px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page{
+    display:none;
+
+    min-height:100vh;
+
+    padding-top:82px;
+}
+
+.page.active{
+    display:block;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:65px 30px 90px;
+}
+
+.back{
+    display:inline-block;
+
+    color:#279b76;
+
+    font-size:19px;
+
+    margin-bottom:40px;
+
+    cursor:pointer;
+}
+
+.title{
+    font-size:58px;
+    line-height:1;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#279b76;
+
+    font-size:20px;
+
+    letter-spacing:6px;
+
+    margin-bottom:50px;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home-container{
+    min-height:calc(100vh - 82px);
+
+    display:flex;
+    align-items:center;
+}
+
+.home-grid{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 430px;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.hello{
+    color:#279b76;
+
+    font-size:21px;
+
+    letter-spacing:6px;
+
+    margin-bottom:25px;
+}
+
+.home h1{
+    font-size:72px;
+
+    line-height:1;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+}
+
+.home h1 span{
+    color:#48b894;
+}
+
+.home h2{
+    font-size:34px;
+
+    margin-bottom:20px;
+}
+
+.home p{
+    color:#666;
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    border:2px solid #48b894;
+
+    font-size:17px;
+
+    cursor:pointer;
+}
+
+.btn-mint{
+    background:#48b894;
+
+    color:#fff;
+}
+
+.btn-mint:hover{
+    background:#279b76;
+}
+
+.btn-white{
+    background:#fff;
+
+    color:#279b76;
+}
+
+.btn-white:hover{
+    background:#edfff8;
+}
+
+.home-photo{
+    width:100%;
+
+    max-width:430px;
+
+    margin:auto;
+}
+
+.home-photo img{
+    display:block;
+
+    width:100%;
+
+    border-radius:28px;
+
+    border:4px solid #48b894;
+
+    box-shadow:0 20px 50px rgba(72,184,148,.2);
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+.profile{
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:55px;
+
+    align-items:start;
+}
+
+.profile-photo{
+    width:100%;
+
+    max-width:420px;
+
+    margin:auto;
+}
+
+.profile-photo img{
+    display:block;
+
+    width:100%;
+
+    border-radius:28px;
+
+    border:4px solid #48b894;
+
+    box-shadow:0 20px 50px rgba(72,184,148,.18);
+}
+
+.profile-card{
+    background:#fff;
+
+    border-left:6px solid #48b894;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.profile-card h2{
+    color:#279b76;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+}
+
+.info{
+    color:#555;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    margin-bottom:10px;
+}
+
+.info strong{
+    color:#222;
+}
+
+
+/* =========================
+   EDUCATION
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+
+    border:1px solid #dff5eb;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.card h3{
+    color:#279b76;
+
+    font-size:26px;
+
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:8px;
+}
+
+
+/* =========================
+   UNIVERSITY
+========================= */
+
+.university{
+    max-width:850px;
+
+    margin:auto;
+
+    text-align:center;
+
+    background:#effff8;
+
+    border:2px solid #78cdb1;
+
+    border-radius:30px;
+
+    padding:50px 30px;
+}
+
+.university-logo{
+    width:160px;
+
+    height:160px;
+
+    object-fit:contain;
+
+    margin-bottom:25px;
+}
+
+.university h2{
+    font-size:38px;
+
+    margin-bottom:15px;
+}
+
+.university h3{
+    color:#279b76;
+
+    font-size:29px;
+
+    margin-bottom:20px;
+}
+
+.university p{
+    color:#666;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+}
+
+.skill{
+    padding:14px 24px;
+
+    border-radius:50px;
+
+    background:#edfff8;
+
+    border:1px solid #48b894;
+
+    color:#279b76;
+
+    font-size:18px;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:28px;
+}
+
+.project{
+    overflow:hidden;
+
+    background:#fff;
+
+    border:1px solid #dff5eb;
+
+    border-radius:24px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.07);
+}
+
+.project img{
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    color:#279b76;
+
+    font-size:25px;
+
+    margin-bottom:10px;
+}
+
+.project-content p{
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:50px 30px;
+
+    background:#effff8;
+
+    border:2px solid #78cdb1;
+
+    border-radius:28px;
+}
+
+.contact h2{
+    font-size:35px;
+
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:#666;
+
+    font-size:18px;
+
+    line-height:2;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#164c3d;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:35px 20px;
+}
+
+footer span{
+    color:#6ed6b4;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:7000;
+
+    background:rgba(0,0,0,.72);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.menu-box{
+    width:100%;
+
+    max-width:680px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#12372d;
+
+    color:#fff;
+
+    border:1px solid #48b894;
+
+    border-radius:28px;
+
+    padding:30px;
+}
+
+.menu-head{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:30px;
+}
+
+.menu-head h2{
+    font-size:27px;
+}
+
+.close{
+    width:55px;
+
+    height:55px;
+
+    background:transparent;
+
+    color:#fff;
+
+    border:1px solid #557c70;
+
+    border-radius:15px;
+
+    font-size:30px;
+
+    cursor:pointer;
+}
+
+.menu-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+}
+
+.menu-item{
+    min-height:120px;
+
+    border:1px solid #3d9478;
+
+    border-radius:18px;
+
+    background:#19483b;
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.menu-item:hover{
+    background:#48b894;
+
+    border-color:#48b894;
+
+    transform:translateY(-2px);
+}
+
+.menu-icon{
+    font-size:34px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .home-grid{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .home-photo{
+        order:-1;
+
+        max-width:380px;
+    }
+
+    .home h1{
+        font-size:55px;
+    }
+
+    .profile{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .title{
+        font-size:48px;
+    }
+
+}
+
+@media(max-width:550px){
+
+    header{
+        height:78px;
+    }
+
+    .page{
+        padding-top:78px;
+    }
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .logo{
+        font-size:27px;
+    }
+
+    .menu-button{
+        width:56px;
+
+        height:56px;
+    }
+
+    .container{
+        padding:50px 20px 80px;
+    }
+
+    .home h1{
+        font-size:48px;
+    }
+
+    .home h2{
+        font-size:26px;
+    }
+
+    .home p{
+        font-size:17px;
+    }
+
+    .title{
+        font-size:43px;
+    }
+
+    .profile-card{
+        padding:25px;
+    }
+
+    .info{
+        font-size:16px;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .menu-item{
+        min-height:105px;
+
+        font-size:17px;
+    }
+
+    .project img{
+        height:240px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVIGATION -->
 
-    <nav>
-        <div class="nav-container">
+<!-- หิมะ -->
 
-            <div class="logo">
-                P.P. Portfolio
-            </div>
+<div id="snow"></div>
 
-            <ul class="menu">
-                <li><a href="#home">หน้าหลัก</a></li>
-                <li><a href="#profile">ประวัติ</a></li>
-                <li><a href="#education">การศึกษา</a></li>
-                <li><a href="#university">มหาวิทยาลัย</a></li>
-                <li><a href="#skills">ทักษะ</a></li>
-                <li><a href="#projects">ผลงาน</a></li>
-                <li><a href="#contact">ติดต่อ</a></li>
-            </ul>
 
-        </div>
-    </nav>
+<!-- HEADER -->
 
+<header>
 
-    <!-- HOME -->
+<div class="navbar">
 
-    <section id="home">
+<a href="#home"
+   class="logo"
+   onclick="showPage('home')">
 
-        <div class="home-container">
+P.P.<span>PORTFOLIO</span>
 
-            <div class="home-text">
+</a>
 
-                <small>HELLO, I'M</small>
+<button class="menu-button"
+        onclick="openMenu()">
 
-                <h1>แพรวพิชชา คูณอ่ำ</h1>
+☰
 
-                <h2>นักศึกษามหาวิทยาลัยบูรพา</h2>
+</button>
 
-                <p>
-                    คณะมนุษยศาสตร์และสังคมศาสตร์
-                    สาขาภาษาจีน
-                </p>
+</div>
 
-                <div class="buttons">
+</header>
 
-                    <a href="#profile" class="btn btn-main">
-                        รู้จักฉันมากขึ้น
-                    </a>
 
-                    <a href="#contact" class="btn btn-outline">
-                        ติดต่อฉัน
-                    </a>
+<!-- HOME -->
 
-                </div>
+<section id="home"
+         class="page active">
 
-            </div>
+<div class="container home-container">
 
-            <div class="profile-circle">
-                🌿
-            </div>
+<div class="home-grid">
 
-        </div>
+<div>
 
-    </section>
+<div class="hello">
+HELLO, I'M
+</div>
 
+<h1>
+แพรว<span>พิชชา</span>
+</h1>
 
-    <!-- PROFILE -->
+<h2>
+น.ส.แพรวพิชชา คูณอ่ำ
+</h2>
 
-    <section id="profile">
+<p>
 
-        <div class="container">
+นักศึกษามหาวิทยาลัยบูรพา
 
-            <div class="section-title">
-                <span>MY PROFILE</span>
-                <h2>ประวัติ</h2>
-            </div>
+<br>
 
-            <div class="profile-box">
+คณะมนุษยศาสตร์และสังคมศาสตร์
+สาขาภาษาจีน
 
-                <div class="profile-icon">
-                    👩🏻‍🎓
-                </div>
+</p>
 
-                <div class="profile-info">
+<div class="buttons">
 
-                    <p>
-                        <strong>ชื่อ-นามสกุล:</strong>
-                        น.ส.แพรวพิชชา คูณอ่ำ
-                    </p>
+<button class="btn btn-mint"
+        onclick="showPage('history')">
 
-                    <p>
-                        <strong>วันเกิด:</strong>
-                        23 มีนาคม 2552
-                    </p>
+รู้จักฉันมากขึ้น
 
-                    <p>
-                        <strong>โรงเรียนเดิม:</strong>
-                        โรงเรียนวัฒนดรุณวิทย์
-                    </p>
+</button>
 
-                    <p>
-                        <strong>มหาวิทยาลัย:</strong>
-                        มหาวิทยาลัยบูรพา
-                    </p>
+<button class="btn btn-white"
+        onclick="showPage('contact')">
 
-                    <p>
-                        <strong>คณะ:</strong>
-                        มนุษยศาสตร์และสังคมศาสตร์
-                    </p>
+ติดต่อฉัน
 
-                    <p>
-                        <strong>สาขา:</strong>
-                        ภาษาจีน
-                    </p>
+</button>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
-    </section>
+<div class="home-photo">
 
+<img
+src="profile.jpg"
+alt="น.ส.แพรวพิชชา คูณอ่ำ">
 
-    <!-- EDUCATION -->
+</div>
 
-    <section id="education">
+</div>
 
-        <div class="container">
+</div>
 
-            <div class="section-title">
-                <span>EDUCATION</span>
-                <h2>การศึกษา</h2>
-            </div>
+</section>
 
-            <div class="education-grid">
 
-                <div class="edu-card">
+<!-- HISTORY -->
 
-                    <h3>🎓 ระดับมัธยมศึกษา</h3>
+<section id="history"
+         class="page">
 
-                    <p>
-                        โรงเรียนวัฒนดรุณวิทย์
-                    </p>
+<div class="container">
 
-                </div>
+<div class="back"
+     onclick="showPage('home')">
 
-                <div class="edu-card">
+← กลับหน้าหลัก
 
-                    <h3>🏫 ระดับมหาวิทยาลัย</h3>
+</div>
 
-                    <p>
-                        มหาวิทยาลัยบูรพา
-                    </p>
+<h1 class="title">
+ประวัติ
+</h1>
 
-                </div>
+<div class="subtitle">
+MY PROFILE
+</div>
 
-                <div class="edu-card">
+<div class="profile">
 
-                    <h3>📚 คณะ</h3>
+<div class="profile-photo">
 
-                    <p>
-                        คณะมนุษยศาสตร์และสังคมศาสตร์
-                    </p>
+<img
+src="profile.jpg"
+alt="รูปประจำตัว">
 
-                </div>
+</div>
 
-                <div class="edu-card">
 
-                    <h3>🇨🇳 สาขาวิชา</h3>
+<div class="profile-card">
 
-                    <p>
-                        สาขาภาษาจีน
-                    </p>
+<h2>
+น.ส.แพรวพิชชา คูณอ่ำ
+</h2>
 
-                </div>
+<div class="info">
+<strong>ชื่อ-นามสกุล:</strong>
+น.ส.แพรวพิชชา คูณอ่ำ
+</div>
 
-            </div>
+<div class="info">
+<strong>วัน/เดือน/ปีเกิด:</strong>
+23 มีนาคม 2552
+</div>
 
-        </div>
+<div class="info">
+<strong>สถานศึกษาเดิม:</strong>
+โรงเรียนวัฒนดรุณวิทย์
+</div>
 
-    </section>
+<div class="info">
+<strong>มหาวิทยาลัย:</strong>
+มหาวิทยาลัยบูรพา
+</div>
 
+<div class="info">
+<strong>คณะ:</strong>
+มนุษยศาสตร์และสังคมศาสตร์
+</div>
 
-    <!-- UNIVERSITY -->
+<div class="info">
+<strong>สาขา:</strong>
+ภาษาจีน
+</div>
 
-    <section id="university">
+</div>
 
-        <div class="container">
+</div>
 
-            <div class="section-title">
+</div>
 
-                <span>UNIVERSITY</span>
+</section>
 
-                <h2>มหาวิทยาลัย</h2>
 
-            </div>
+<!-- EDUCATION -->
 
-            <div class="university-card">
+<section id="education"
+         class="page">
 
-                <div class="university-icon">
-                    🎓
-                </div>
+<div class="container">
 
-                <h3>มหาวิทยาลัยบูรพา</h3>
+<div class="back"
+     onclick="showPage('home')">
 
-                <p>
-                    คณะมนุษยศาสตร์และสังคมศาสตร์
-                </p>
+← กลับหน้าหลัก
 
-                <p>
-                    สาขาภาษาจีน
-                </p>
+</div>
 
-                <p>
-                    สนใจด้านภาษา การสื่อสาร
-                    และวัฒนธรรมจีน
-                </p>
+<h1 class="title">
+การศึกษา
+</h1>
 
-            </div>
+<div class="subtitle">
+EDUCATION
+</div>
 
-        </div>
+<div class="cards">
 
-    </section>
 
+<div class="card">
 
-    <!-- SKILLS -->
+<h3>
+🎓 ระดับมัธยมศึกษา
+</h3>
 
-    <section id="skills">
+<p>
+โรงเรียนวัฒนดรุณวิทย์
+</p>
 
-        <div class="container">
+</div>
 
-            <div class="section-title">
 
-                <span>SKILLS</span>
+<div class="card">
 
-                <h2>ทักษะ</h2>
+<h3>
+🎓 ระดับมหาวิทยาลัย
+</h3>
 
-            </div>
+<p>
+มหาวิทยาลัยบูรพา
+</p>
 
-            <div class="skills">
+</div>
 
-                <div class="skill">
-                    <div class="icon">🇨🇳</div>
-                    <h3>ภาษาจีน</h3>
-                </div>
 
-                <div class="skill">
-                    <div class="icon">🇬🇧</div>
-                    <h3>ภาษาอังกฤษ</h3>
-                </div>
+<div class="card">
 
-                <div class="skill">
-                    <div class="icon">💬</div>
-                    <h3>การสื่อสาร</h3>
-                </div>
+<h3>
+📚 คณะ
+</h3>
 
-                <div class="skill">
-                    <div class="icon">🤝</div>
-                    <h3>การทำงานเป็นทีม</h3>
-                </div>
+<p>
+คณะมนุษยศาสตร์และสังคมศาสตร์
+</p>
 
-                <div class="skill">
-                    <div class="icon">💻</div>
-                    <h3>คอมพิวเตอร์</h3>
-                </div>
+</div>
 
-                <div class="skill">
-                    <div class="icon">📚</div>
-                    <h3>การเรียนรู้</h3>
-                </div>
 
-                <div class="skill">
-                    <div class="icon">🎨</div>
-                    <h3>ความคิดสร้างสรรค์</h3>
-                </div>
+<div class="card">
 
-                <div class="skill">
-                    <div class="icon">💡</div>
-                    <h3>การแก้ปัญหา</h3>
-                </div>
+<h3>
+🇨🇳 สาขาวิชา
+</h3>
 
-            </div>
+<p>
+สาขาภาษาจีน
+</p>
 
-        </div>
+</div>
 
-    </section>
 
+</div>
 
-    <!-- PROJECTS -->
+</div>
 
-    <section id="projects">
+</section>
 
-        <div class="container">
 
-            <div class="section-title">
+<!-- UNIVERSITY -->
 
-                <span>PROJECTS</span>
+<section id="university"
+         class="page">
 
-                <h2>ผลงาน</h2>
+<div class="container">
 
-            </div>
+<div class="back"
+     onclick="showPage('home')">
 
-            <div class="project-grid">
+← กลับหน้าหลัก
 
-                <div class="project">
+</div>
 
-                    <div class="project-icon">
-                        📖
-                    </div>
+<h1 class="title">
+มหาวิทยาลัย
+</h1>
 
-                    <h3>ผลงานด้านการเรียน</h3>
+<div class="subtitle">
+UNIVERSITY
+</div>
 
-                    <p>
-                        ผลงานและกิจกรรมจากการเรียน
-                        สามารถเพิ่มรายละเอียดและรูปภาพได้
-                    </p>
+<div class="university">
 
-                </div>
+<div style="font-size:80px;margin-bottom:20px;">
+🎓
+</div>
 
-                <div class="project">
+<h2>
+มหาวิทยาลัยบูรพา
+</h2>
 
-                    <div class="project-icon">
-                        🇨🇳
-                    </div>
+<h3>
+คณะมนุษยศาสตร์และสังคมศาสตร์
+</h3>
 
-                    <h3>กิจกรรมด้านภาษาจีน</h3>
+<p>
+สาขาภาษาจีน
+</p>
 
-                    <p>
-                        กิจกรรมและประสบการณ์
-                        ที่เกี่ยวข้องกับภาษาจีนและวัฒนธรรม
-                    </p>
+<p>
+ศึกษาด้านภาษา การสื่อสาร
+และวัฒนธรรมจีน
+</p>
 
-                </div>
+</div>
 
-                <div class="project">
+</div>
 
-                    <div class="project-icon">
-                        🏆
-                    </div>
+</section>
 
-                    <h3>กิจกรรมและรางวัล</h3>
 
-                    <p>
-                        สามารถเพิ่มผลงาน รางวัล
-                        และกิจกรรมต่าง ๆ ได้ที่ส่วนนี้
-                    </p>
+<!-- SKILLS -->
 
-                </div>
+<section id="skills"
+         class="page">
 
-            </div>
+<div class="container">
 
-        </div>
+<div class="back"
+     onclick="showPage('home')">
 
-    </section>
+← กลับหน้าหลัก
 
+</div>
 
-    <!-- CONTACT -->
+<h1 class="title">
+ทักษะ
+</h1>
 
-    <section id="contact">
+<div class="subtitle">
+SKILLS
+</div>
 
-        <div class="container">
+<div class="skills">
 
-            <div class="section-title">
+<div class="skill">
+🇨🇳 ภาษาจีน
+</div>
 
-                <span>CONTACT</span>
+<div class="skill">
+💬 การสื่อสาร
+</div>
 
-                <h2>ติดต่อ</h2>
+<div class="skill">
+📚 การเรียนรู้
+</div>
 
-            </div>
+<div class="skill">
+💻 คอมพิวเตอร์
+</div>
 
-            <div class="contact-box">
+<div class="skill">
+🤝 การทำงานเป็นทีม
+</div>
 
-                <h2>ขอบคุณที่เข้ามาเยี่ยมชม Portfolio 🌿</h2>
+</div>
 
-                <p>
-                    👩🏻‍🎓 น.ส.แพรวพิชชา คูณอ่ำ
-                </p>
+</div>
 
-                <p>
-                    🎓 มหาวิทยาลัยบูรพา
-                </p>
+</section>
 
-                <p>
-                    🇨🇳 คณะมนุษยศาสตร์และสังคมศาสตร์
-                    สาขาภาษาจีน
-                </p>
 
-            </div>
+<!-- PROJECTS -->
 
-        </div>
+<section id="projects"
+         class="page">
 
-    </section>
+<div class="container">
 
+<div class="back"
+     onclick="showPage('home')">
 
-    <!-- FOOTER -->
+← กลับหน้าหลัก
 
-    <footer>
+</div>
 
-        <p>
-            © 2026 แพรวพิชชา คูณอ่ำ
-        </p>
+<h1 class="title">
+ผลงาน
+</h1>
 
-        <p>
-            PORTFOLIO 🌿
-        </p>
+<div class="subtitle">
+PROJECTS
+</div>
 
-    </footer>
+<div class="projects">
+
+
+<div class="project">
+
+<img
+src="project1.jpg"
+alt="ผลงานที่ 1">
+
+<div class="project-content">
+
+<h3>
+📚 ผลงานด้านการเรียน
+</h3>
+
+<p>
+สามารถเพิ่มผลงานและกิจกรรม
+ด้านการเรียนได้ที่ส่วนนี้
+</p>
+
+</div>
+
+</div>
+
+
+<div class="project">
+
+<img
+src="project2.jpg"
+alt="ผลงานที่ 2">
+
+<div class="project-content">
+
+<h3>
+🇨🇳 กิจกรรมด้านภาษาจีน
+</h3>
+
+<p>
+สามารถเพิ่มกิจกรรมและประสบการณ์
+ที่เกี่ยวข้องกับภาษาจีนได้
+</p>
+
+</div>
+
+</div>
+
+
+<div class="project">
+
+<img
+src="project3.jpg"
+alt="ผลงานที่ 3">
+
+<div class="project-content">
+
+<h3>
+🏆 กิจกรรมและผลงาน
+</h3>
+
+<p>
+สามารถเพิ่มผลงาน รางวัล
+และกิจกรรมต่าง ๆ ได้ที่ส่วนนี้
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact"
+         class="page">
+
+<div class="container">
+
+<div class="back"
+     onclick="showPage('home')">
+
+← กลับหน้าหลัก
+
+</div>
+
+<h1 class="title">
+ติดต่อ
+</h1>
+
+<div class="subtitle">
+CONTACT
+</div>
+
+<div class="contact">
+
+<h2>
+ติดต่อฉันได้ที่
+</h2>
+
+<p>
+👩🏻‍🎓 น.ส.แพรวพิชชา คูณอ่ำ
+</p>
+
+<p>
+🎓 มหาวิทยาลัยบูรพา
+</p>
+
+<p>
+🇨🇳 คณะมนุษยศาสตร์และสังคมศาสตร์
+สาขาภาษาจีน
+</p>
+
+<p>
+ขอบคุณที่เข้ามาเยี่ยมชม Portfolio ค่ะ 💚
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026
+<span>แพรวพิชชา</span>
+PORTFOLIO
+
+</footer>
+
+
+<!-- MENU -->
+
+<div id="menu"
+     class="overlay"
+     onclick="closeMenuOutside(event)">
+
+<div class="menu-box">
+
+<div class="menu-head">
+
+<h2>
+P.P. PORTFOLIO
+</h2>
+
+<button class="close"
+        onclick="closeMenu()">
+
+×
+
+</button>
+
+</div>
+
+<div style="
+text-align:center;
+margin-bottom:25px;
+color:#b8dcd0;
+">
+
+MENU — เมนูต่าง ๆ
+
+</div>
+
+
+<div class="menu-grid">
+
+
+<button class="menu-item"
+        onclick="showPage('home')">
+
+<div class="menu-icon">
+🏠
+</div>
+
+หน้าหลัก
+
+</button>
+
+
+<button class="menu-item"
+        onclick="showPage('history')">
+
+<div class="menu-icon">
+👤
+</div>
+
+ประวัติ
+
+</button>
+
+
+<button class="menu-item"
+        onclick="showPage('education')">
+
+<div class="menu-icon">
+🎓
+</div>
+
+การศึกษา
+
+</button>
+
+
+<button class="menu-item"
+        onclick="showPage('university')">
+
+<div class="menu-icon">
+🏫
+</div>
+
+มหาวิทยาลัย
+
+</button>
+
+
+<button class="menu-item"
+        onclick="showPage('skills')">
+
+<div class="menu-icon">
+⚙️
+</div>
+
+ทักษะ
+
+</button>
+
+
+<button class="menu-item"
+        onclick="showPage('projects')">
+
+<div class="menu-icon">
+📁
+</div>
+
+ผลงาน
+
+</button>
+
+
+<button class="menu-item"
+        onclick="showPage('contact')">
+
+<div class="menu-icon">
+💬
+</div>
+
+ติดต่อ
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(pageId){
+
+    const pages =
+        document.querySelectorAll('.page');
+
+    pages.forEach(function(page){
+
+        page.classList.remove('active');
+
+    });
+
+    const selectedPage =
+        document.getElementById(pageId);
+
+    if(selectedPage){
+
+        selectedPage.classList.add('active');
+
+    }
+
+    closeMenu();
+
+    history.replaceState(
+        null,
+        null,
+        '#' + pageId
+    );
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+function openMenu(){
+
+    document
+    .getElementById('menu')
+    .classList.add('show');
+
+}
+
+
+function closeMenu(){
+
+    document
+    .getElementById('menu')
+    .classList.remove('show');
+
+}
+
+
+function closeMenuOutside(event){
+
+    if(event.target.id === 'menu'){
+
+        closeMenu();
+
+    }
+
+}
+
+
+/* =========================
+   LOAD PAGE FROM URL
+========================= */
+
+window.addEventListener(
+    'load',
+    function(){
+
+        const hash =
+            window.location.hash.replace('#','');
+
+        const validPages = [
+
+            'home',
+            'history',
+            'education',
+            'university',
+            'skills',
+            'projects',
+            'contact'
+
+        ];
+
+        if(validPages.includes(hash)){
+
+            showPage(hash);
+
+        }else{
+
+            showPage('home');
+
+        }
+
+    }
+);
+
+
+/* =========================
+   SNOW
+========================= */
+
+function createSnow(){
+
+    const container =
+        document.getElementById('snow');
+
+    const snow =
+        document.createElement('div');
+
+    snow.className =
+        'snowflake';
+
+    snow.innerHTML =
+        '❄';
+
+    snow.style.left =
+        Math.random() * 100 + 'vw';
+
+    snow.style.fontSize =
+        Math.random() * 12 + 8 + 'px';
+
+    snow.style.opacity =
+        Math.random() * .7 + .3;
+
+    snow.style.animationDuration =
+        Math.random() * 5 + 5 + 's';
+
+    container.appendChild(snow);
+
+    setTimeout(
+        function(){
+
+            snow.remove();
+
+        },
+        12000
+    );
+
+}
+
+
+setInterval(
+    createSnow,
+    350
+);
+
+
+for(
+    let i = 0;
+    i < 25;
+    i++
+){
+
+    setTimeout(
+        createSnow,
+        i * 120
+    );
+
+}
+
+</script>
 
 </body>
 </html>
